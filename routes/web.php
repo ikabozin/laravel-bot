@@ -11,10 +11,6 @@
 |
 */
 
-use Illuminate\Support\Facades\Log;
-
-Log::debug(json_encode($_REQUEST));
-
 Route::get('/', function () {
     return view('welcome');
 });
