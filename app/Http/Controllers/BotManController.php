@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use BotMan\BotMan\BotMan;
 use Illuminate\Http\Request;
 use App\Conversations\ExampleConversation;
+use Illuminate\Support\Facades\Log;
 
 class BotManController extends Controller
 {
@@ -14,6 +15,8 @@ class BotManController extends Controller
     public function handle()
     {
         $botman = app('botman');
+
+        Log::debug(json_encode($_POST));
 
         $botman->listen();
     }
