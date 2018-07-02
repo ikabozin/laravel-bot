@@ -1,5 +1,8 @@
 <?php
 use App\Http\Controllers\BotManController;
+use Illuminate\Support\Facades\Log;
+
+Log::debug('botman');
 
 $botman = resolve('botman');
 
