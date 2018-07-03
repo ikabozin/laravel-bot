@@ -24,14 +24,18 @@ class SubscribeConversation extends Conversation
 
     private function welcome()
     {
+        $this->bot->typesAndWaits(.5);
         $this->bot->reply('Hey and welcome! 👋');
         $this->askAboutSubscription();
     }
 
     private function askAboutSubscription()
     {
+        $this->bot->typesAndWaits(.5);
         $this->bot->reply('I help Christoph to spread some news about his book development. 📘');
+        $this->bot->typesAndWaits(1);
         $this->bot->reply("If you like, I can keep you updated about it here on Facebook Messenger. (1-2 times a month)");
+        $this->bot->typesAndWaits(1);
         $this->bot->reply("In order to work I will store your name and Facebook ID. Please make sure to read the short and easy to read privacy policy for more information(1-2min): \nhttps://christoph-rumpel.com/policy-newsletterchatbot");
 
         $question = Question::create('Are you in?')
@@ -46,14 +50,19 @@ class SubscribeConversation extends Conversation
             if ($answer->getValue() === 'yes') {
                 User::createFromIncomingMessage($this->bot->getUser());
                 User::subscribe($answer->getMessage()->getSender());
+                $this->bot->typesAndWaits(.5);
                 $this->bot->reply('Wuhu, great to have you on board! 🎉');
+                $this->bot->typesAndWaits(.5);
                 $this->bot->reply('I will message you when there is something new to tell ✌️');
             } else {
                 User::unsubscribe($answer->getMessage()->getSender());
+                $this->bot->typesAndWaits(1);
                 $this->bot->reply('Ok no problem. If change your mind, just type "subscribe".');
             }
 
+            $this->bot->typesAndWaits(1);
             $this->bot->reply("Christoph also likes to blog a lot. Make sure to checkout his site for more chatbot stuff: \n ✨ https://christoph-rumpel.com/ ✨ ");
+            $this->bot->typesAndWaits(.5);
             $this->bot->reply('See you! 👋');
         });
     }
