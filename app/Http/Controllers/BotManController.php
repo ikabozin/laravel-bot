@@ -14,8 +14,6 @@ class BotManController extends Controller
      */
     public function handle(Request $request)
     {
-        Log::debug(json_encode($request->all()));
-
         $botman = app('botman');
 
         $botman->listen();
