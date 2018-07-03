@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        //'name', 'email', 'password',
         'fb_id',
         'first_name',
         'last_name',
@@ -36,7 +36,6 @@ class User extends Authenticatable
             'fb_id' => $user->getId(),
             'first_name' => $user->getFirstName(),
             'last_name' => $user->getLastName(),
-            'name' => $user->getUsername(),
             //'profile_pic' => $user->getProfilePic(),
             //'locale' => $user->getLocale(),
             //'gender' => $user->getGender(),
