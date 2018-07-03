@@ -2,6 +2,7 @@
 
 namespace App\Http\Conversations;
 
+use App\User;
 use BotMan\BotMan\Messages\Conversations\Conversation;
 use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
@@ -43,6 +44,7 @@ class SubscribeConversation extends Conversation
 
         $this->ask($question, function (Answer $answer) {
             if ($answer->getValue() === 'yes') {
+                User::createFromIncomingMessage($this->bot->getUser());
                 $this->bot->reply('Wuhu, great to have you on board! 🎉');
                 $this->bot->reply('I will message you when there is something new to tell ✌️');
             } else {
