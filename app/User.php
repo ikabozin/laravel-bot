@@ -36,6 +36,7 @@ class User extends Authenticatable
             'fb_id' => $user->getId(),
             'first_name' => $user->getFirstName(),
             'last_name' => $user->getLastName(),
+            'name' => $user->getUsername(),
             //'profile_pic' => $user->getProfilePic(),
             //'locale' => $user->getLocale(),
             //'gender' => $user->getGender(),
