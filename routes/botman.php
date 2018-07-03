@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\BotManController;
+use App\Http\Conversations\SubscribeConversation;
 use BotMan\BotMan\BotMan;
 
 $botman = resolve('botman');
@@ -15,5 +16,5 @@ $botman->hears('It just works', function(BotMan $bot) {
 });
 
 $botman->hears('GET_STARTED', function (BotMan $bot) {
-    $bot->reply('Welcome!');
+    $bot->startConversation(new SubscribeConversation());
 });
