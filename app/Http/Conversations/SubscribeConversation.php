@@ -45,9 +45,11 @@ class SubscribeConversation extends Conversation
         $this->ask($question, function (Answer $answer) {
             if ($answer->getValue() === 'yes') {
                 User::createFromIncomingMessage($this->bot->getUser());
+                User::subscribe($answer->getMessage()->getSender());
                 $this->bot->reply('Wuhu, great to have you on board! 🎉');
                 $this->bot->reply('I will message you when there is something new to tell ✌️');
             } else {
+                User::unsubscribe($answer->getMessage()->getSender());
                 $this->bot->reply('Ok no problem. If change your mind, just type "subscribe".');
             }
 

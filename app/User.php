@@ -41,4 +41,36 @@ class User extends Authenticatable
             //'gender' => $user->getGender(),
         ]);
     }
+
+    /**
+     * Subscribe user to newsletter
+     *
+     * @param string $facebookId
+     */
+    public static function subscribe(string $facebookId)
+    {
+        $user = User::where('fb_id', $facebookId)
+            ->first();
+
+        if ($user) {
+            $user->subscribed = true;
+            $user->save();
+        }
+    }
+
+    /**
+     * Unsubscribe user from newsletter
+     *
+     * @param string $facebookId
+     */
+    public static function unsubscribe(string $facebookId)
+    {
+        $user = User::where('fb_id', $facebookId)
+            ->first();
+
+        if ($user) {
+            $user->subscribed = false;
+            $user->save();
+        }
+    }
 }
