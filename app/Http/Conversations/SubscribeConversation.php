@@ -9,12 +9,16 @@ use BotMan\BotMan\Messages\Outgoing\Question;
 
 class SubscribeConversation extends Conversation
 {
-    /**
-     * Start the conversation.
-     */
+    protected $userFromStartButton;
+
+    public function __construct(bool $userFromStartButton) {
+
+        $this->userFromStartButton = $userFromStartButton;
+    }
+
     public function run()
     {
-        $this->welcome();
+        $this->userFromStartButton ? $this->welcome() : $this->askAboutSubscription();
     }
 
     private function welcome()

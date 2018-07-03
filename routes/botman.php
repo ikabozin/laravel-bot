@@ -15,6 +15,7 @@ $botman->hears('It just works', function(BotMan $bot) {
     $bot->reply('Yep 🤘');
 });
 
-$botman->hears('GET_STARTED', function (BotMan $bot) {
-    $bot->startConversation(new SubscribeConversation());
+$botman->hears('GET_STARTED|subscribe', function (BotMan $bot) {
+    $userFromStartButton = $bot->getMessage()->getText() === 'GET_STARTED' ? true : false;
+    $bot->startConversation(new SubscribeConversation($userFromStartButton));
 });
