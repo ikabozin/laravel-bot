@@ -76,23 +76,23 @@ return [
     'persistent_menu' => [
         [
             'locale' => 'default',
-            'composer_input_disabled' => 'true',
+            'composer_input_disabled' => 'false',
             'call_to_actions' => [
                 [
-                    'title' => 'My Account',
-                    'type' => 'nested',
-                    'call_to_actions' => [
-                        [
-                            'title' => 'Pay Bill',
-                            'type' => 'postback',
-                            'payload' => 'PAYBILL_PAYLOAD',
-                        ],
-                    ],
+                    'title' => '💌 Edit subscription',
+                    'type' => 'postback',
+                    'payload' => 'subscribe',
                 ],
                 [
                     'type' => 'web_url',
-                    'title' => 'Latest News',
-                    'url' => 'http://botman.io',
+                    'title' => '📚 Book website ',
+                    'url' => 'https://christoph-rumpel.com/build-chatbots-with-php',
+                    'webview_height_ratio' => 'full',
+                ],
+                [
+                    'type' => 'web_url',
+                    'title' => '👉 Christoph\'s Blog',
+                    'url' => 'https://christoph-rumpel.com',
                     'webview_height_ratio' => 'full',
                 ],
             ],
