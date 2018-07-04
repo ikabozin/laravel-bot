@@ -90,7 +90,7 @@
         <div class="fb-customerchat"
              page_id="277079813036769"
              ref=""
-             theme_color="4EC3C8"
+             theme_color="#4EC3C8"
              logged_in_greeting="Hi"
              logged_out_greeting="Bye">
         </div>
