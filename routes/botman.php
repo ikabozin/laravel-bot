@@ -44,7 +44,7 @@ $botman->hears('hi - custom - intent', function (BotMan $bot) {
 
 
 
-$botman->fallback(function(BotMan $bot) {
+/*$botman->fallback(function(BotMan $bot) {
     $bot->reply('Hey!');
     $bot->typesAndWaits(1);
     $bot->reply('I see those words of yours, but I have no idea what they mean. 🤔');
@@ -60,5 +60,5 @@ $botman->fallback(function(BotMan $bot) {
 
     $bot->reply($question);
 
-});
+});*/
 
