@@ -2,6 +2,7 @@
 
 namespace App;
 
+use BotMan\BotMan\Interfaces\UserInterface;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -30,7 +31,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public static function createFromIncomingMessage(\BotMan\Drivers\Facebook\Extensions\User $user)
+    public static function createFromIncomingMessage(UserInterface $user)
     {
         User::updateOrCreate(['fb_id' => $user->getId()], [
             'fb_id' => $user->getId(),
