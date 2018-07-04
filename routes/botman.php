@@ -23,12 +23,6 @@ $botman->hears('GET_STARTED|subscribe', function (BotMan $bot) {
     $bot->startConversation(new SubscribeConversation($userFromStartButton));
 });
 
-
-
-
-
-
-
 $botman->fallback(function(BotMan $bot) {
     $bot->reply('Hey!');
     $bot->typesAndWaits(1);
@@ -47,6 +41,8 @@ $botman->fallback(function(BotMan $bot) {
 
 });
 
+
+
 $dialogflow = ApiAi::create('bdb33e88ef354dd7a7b8b758cdec3ed4')->listenForAction();
 
 // Apply global "received" middleware
@@ -61,5 +57,5 @@ $botman->hears('DefaultWelcomeIntent-custom', function (BotMan $bot) {
     $apiAction = $extras['apiAction'];
     $apiIntent = $extras['apiIntent'];
 
-    $bot->reply("this is my reply");
+    $bot->reply($apiReply);
 })->middleware($dialogflow);
