@@ -51,7 +51,7 @@ class SubscribeConversation extends Conversation
                 User::createFromIncomingMessage($this->bot->getUser());
                 User::subscribe($answer->getMessage()->getSender());
                 $this->bot->typesAndWaits(.5);
-                $this->bot->reply('Wuhu, great to have you on board! 🎉');
+                $this->bot->reply('Woohoo, great to have you on board! 🎉');
                 $this->bot->typesAndWaits(.5);
                 $this->bot->reply('I will message you when there is something new to tell ✌️');
             } else {
