@@ -50,6 +50,27 @@
             }
         }
     </style>
+
+    <!-- Messenger -->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId            : 243937669529074,
+                autoLogAppEvents : true,
+                xfbml            : true,
+                version          : 'v3.0'
+            });
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
 </head>
 <body>
 <div class="container">
@@ -64,6 +85,14 @@
             <a href="https://twitter.com/botman_io" target="_blank">News</a>
             <a href="https://rauchg-slackin-jtdkltstsj.now.sh/" target="_blank">Slack</a>
             <a href="https://github.com/botman/botman" target="_blank">GitHub</a>
+        </div>
+
+        <div class="fb-customerchat"
+             page_id="277079813036769"
+             ref=""
+             theme_color="4EC3C8"
+             logged_in_greeting="Hi"
+             logged_out_greeting="Bye">
         </div>
     </div>
 </div>
