@@ -25,22 +25,7 @@ $botman->hears('GET_STARTED|subscribe', function (BotMan $bot) {
 
 
 
-$dialogflow = ApiAi::create('bdb33e88ef354dd7a7b8b758cdec3ed4')->listenForAction();
 
-// Apply global "received" middleware
-$botman->middleware->received($dialogflow);
-
-// Apply matching middleware per hears command
-$botman->hears('DefaultWelcomeIntent-custom', function (BotMan $bot) {
-    // The incoming message matched the "my_api_action" on Dialogflow
-    // Retrieve Dialogflow information:
-    $extras = $bot->getMessage()->getExtras();
-    $apiReply = $extras['apiReply'];
-    $apiAction = $extras['apiAction'];
-    $apiIntent = $extras['apiIntent'];
-
-    $bot->reply("this is my reply");
-})->middleware($dialogflow);
 
 
 
@@ -62,3 +47,19 @@ $botman->fallback(function(BotMan $bot) {
 
 });
 
+$dialogflow = ApiAi::create('bdb33e88ef354dd7a7b8b758cdec3ed4')->listenForAction();
+
+// Apply global "received" middleware
+$botman->middleware->received($dialogflow);
+
+// Apply matching middleware per hears command
+$botman->hears('DefaultWelcomeIntent-custom', function (BotMan $bot) {
+    // The incoming message matched the "my_api_action" on Dialogflow
+    // Retrieve Dialogflow information:
+    $extras = $bot->getMessage()->getExtras();
+    $apiReply = $extras['apiReply'];
+    $apiAction = $extras['apiAction'];
+    $apiIntent = $extras['apiIntent'];
+
+    $bot->reply("this is my reply");
+})->middleware($dialogflow);
