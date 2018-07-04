@@ -61,7 +61,7 @@ class SubscribeConversation extends Conversation
             }
 
             $this->bot->typesAndWaits(1);
-            $this->bot->reply("Christoph also likes to blog a lot. Make sure to checkout his site for more chatbot stuff: \n ✨ https://christoph-rumpel.com/ ✨ ");
+            $this->bot->reply("Christoph also likes to blog a lot. Make sure to check out his site for more chatbot stuff: \n ✨ https://christoph-rumpel.com/ ✨ ");
             $this->bot->typesAndWaits(.5);
             $this->bot->reply('See you! 👋');
         });
