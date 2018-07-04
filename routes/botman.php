@@ -31,7 +31,7 @@ $dialogflow = ApiAi::create('bdb33e88ef354dd7a7b8b758cdec3ed4')->listenForAction
 $botman->middleware->received($dialogflow);
 
 // Apply matching middleware per hears command
-$botman->hears('hi - custom - intent', function (BotMan $bot) {
+$botman->hears('DefaultWelcomeIntent-custom', function (BotMan $bot) {
     // The incoming message matched the "my_api_action" on Dialogflow
     // Retrieve Dialogflow information:
     $extras = $bot->getMessage()->getExtras();
