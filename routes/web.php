@@ -11,9 +11,14 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 Route::get('/botman/tinker', 'BotManController@tinker');
+
+Route::get('/pdf', function () {
+    return PDF::loadFile('http://www.github.com')->inline('github.pdf');
+});
