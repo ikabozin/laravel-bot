@@ -31,7 +31,7 @@ class SimpleCrawlerObserver extends CrawlObserver
         ?UriInterface $foundOnUrl = null
     ) {
         echo $url . '<br>';
-        //var_dump($response);
+        var_dump($response);
     }
 
     /**

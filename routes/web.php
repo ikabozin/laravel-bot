@@ -29,7 +29,7 @@ Route::get('/pdf', function () {
 Route::get('/crawler', function () {
     Crawler::create()
         ->setCrawlObserver((new \App\Crawler\SimpleCrawlerObserver))
-        ->doNotExecuteJavaScript()
+        ->executeJavaScript()
         ->ignoreRobots()
         ->setMaximumCrawlCount(20)
         ->startCrawling('http://psyjournal.ru');
