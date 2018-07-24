@@ -27,6 +27,6 @@ Route::get('/pdf', function () {
 
 Route::get('/crawler', function () {
     Crawler::create()
-        ->setCrawlObserver(\App\Crawler\SimpleCrawlerObserver::class)
+        ->setCrawlObserver((new \App\Crawler\SimpleCrawlerObserver))
         ->startCrawling('http://www.github.com');
 });
