@@ -27,11 +27,13 @@ Route::get('/pdf', function () {
 });
 
 Route::get('/crawler', function () {
-    /*Crawler::create()
+    Crawler::create()
         ->setCrawlObserver((new \App\Crawler\SimpleCrawlerObserver))
-        ->startCrawling('https://php.earth/');*/
+        ->doNotExecuteJavaScript()
+        ->ignoreRobots()
+        ->startCrawling('https://php.earth/');
 
-    Storage::disk()->put('file.txt', 'Привет!');
+    //Storage::disk()->put('file.txt', 'Привет!');
     $content = Storage::disk()->get('file.txt');
     Storage::disk('local')->delete('file.txt');
     return $content;
