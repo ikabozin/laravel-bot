@@ -31,6 +31,7 @@ Route::get('/crawler', function () {
         ->setCrawlObserver((new \App\Crawler\SimpleCrawlerObserver))
         ->doNotExecuteJavaScript()
         ->ignoreRobots()
+        ->setMaximumCrawlCount(1)
         ->startCrawling('https://php.earth/');
 
     //Storage::disk()->put('file.txt', 'Привет!');
