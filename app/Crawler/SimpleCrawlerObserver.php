@@ -29,7 +29,7 @@ class SimpleCrawlerObserver extends CrawlObserver
         ResponseInterface $response,
         ?UriInterface $foundOnUrl = null
     ) {
-        echo $response->getBody()->getContents();
+        return $response->getBody()->getContents();
     }
 
     /**
@@ -44,6 +44,14 @@ class SimpleCrawlerObserver extends CrawlObserver
         RequestException $requestException,
         ?UriInterface $foundOnUrl = null
     ) {
-        echo $requestException->getCode();
+        return $requestException->getCode();
+    }
+
+    /**
+     * Called when the crawl has ended.
+     */
+    public function finishedCrawling()
+    {
+        return 'finish';
     }
 }
