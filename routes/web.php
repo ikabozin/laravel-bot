@@ -12,6 +12,8 @@
 */
 
 
+use Spatie\Crawler\Crawler;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -21,4 +23,10 @@ Route::get('/botman/tinker', 'BotManController@tinker');
 
 Route::get('/pdf', function () {
     return PDF::loadFile('http://www.github.com')->inline('github.pdf');
+});
+
+Route::get('/crawler', function () {
+    Crawler::create()
+        ->setCrawlObserver(\App\Crawler\SimpleCrawlerObserver::class)
+        ->startCrawling('http://www.github.com');
 });
