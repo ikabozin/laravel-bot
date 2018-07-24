@@ -29,7 +29,7 @@ Route::get('/pdf', function () {
 Route::get('/crawler', function () {
     Crawler::create()
         ->setCrawlObserver((new \App\Crawler\SimpleCrawlerObserver))
-        ->startCrawling('http://www.github.com');
+        ->startCrawling('https://www.github.com');
 
     $content = Storage::get('file.txt');
     Storage::delete('file.txt');
