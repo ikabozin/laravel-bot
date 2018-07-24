@@ -32,7 +32,7 @@ Route::get('/crawler', function () {
         ->doNotExecuteJavaScript()
         ->ignoreRobots()
         ->setMaximumCrawlCount(1)
-        ->startCrawling('https://php.earth/');
+        ->startCrawling('https://php.earth');
 
     //Storage::disk()->put('file.txt', 'Привет!');
     $content = Storage::disk()->get('file.txt');
