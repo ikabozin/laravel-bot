@@ -46,7 +46,6 @@ class SimpleCrawlerObserver extends CrawlObserver
         RequestException $requestException,
         ?UriInterface $foundOnUrl = null
     ) {
-
         $content = $requestException->getCode();
         Storage::disk('local')->put('file.txt', $content);
     }
