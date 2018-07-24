@@ -31,7 +31,7 @@ Route::get('/crawler', function () {
         ->setCrawlObserver((new \App\Crawler\SimpleCrawlerObserver))
         ->doNotExecuteJavaScript()
         ->ignoreRobots()
-        ->setMaximumCrawlCount(2)
+        ->setMaximumCrawlCount(20)
         ->startCrawling('http://psyjournal.ru/articles/po-tu-storonu-supruzheskoy-izmeny-na-materiale-filma-stenli-kubrika-shiroko-zakrytye-glaza');
 });
 
