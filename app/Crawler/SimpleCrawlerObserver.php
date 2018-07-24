@@ -31,7 +31,7 @@ class SimpleCrawlerObserver extends CrawlObserver
         ?UriInterface $foundOnUrl = null
     ) {
         $content = $response->getBody()->getContents();
-        Storage::disk()->put('file.txt', $content);
+        Storage::disk('local')->put('file.txt', $content);
     }
 
     /**

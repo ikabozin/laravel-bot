@@ -31,7 +31,7 @@ Route::get('/crawler', function () {
         ->setCrawlObserver((new \App\Crawler\SimpleCrawlerObserver))
         ->startCrawling('https://www.github.com');
 
-    $content = Storage::disk()->get('file.txt');
-    Storage::disk()->delete('file.txt');
+    $content = Storage::disk('local')->get('file.txt');
+    //Storage::disk('local')->delete('file.txt');
     return $content;
 });
