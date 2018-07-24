@@ -12,6 +12,7 @@
 */
 
 
+use Illuminate\Support\Facades\Storage;
 use Spatie\Crawler\Crawler;
 
 Route::get('/', function () {
@@ -30,5 +31,7 @@ Route::get('/crawler', function () {
         ->setCrawlObserver((new \App\Crawler\SimpleCrawlerObserver))
         ->startCrawling('http://www.github.com');
 
-    return 1;
+    $content = Storage::get('file.txt');
+    Storage::delete('file.txt');
+    return $content;
 });

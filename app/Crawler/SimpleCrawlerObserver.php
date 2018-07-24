@@ -29,7 +29,8 @@ class SimpleCrawlerObserver extends CrawlObserver
         ResponseInterface $response,
         ?UriInterface $foundOnUrl = null
     ) {
-        return $response->getBody()->getContents();
+        $content = $response->getBody()->getContents();
+        Storage::put('file.txt', $content);
     }
 
     /**
@@ -44,14 +45,6 @@ class SimpleCrawlerObserver extends CrawlObserver
         RequestException $requestException,
         ?UriInterface $foundOnUrl = null
     ) {
-        return $requestException->getCode();
-    }
-
-    /**
-     * Called when the crawl has ended.
-     */
-    public function finishedCrawling()
-    {
-        return 'finish';
+        $requestException->getCode();
     }
 }
