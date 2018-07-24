@@ -29,7 +29,7 @@ class SimpleCrawlerObserver extends CrawlObserver
         ResponseInterface $response,
         ?UriInterface $foundOnUrl = null
     ) {
-        echo $response->getBody();
+        echo $response->getBody()->getContents();
     }
 
     /**
