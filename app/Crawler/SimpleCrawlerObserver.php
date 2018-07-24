@@ -30,12 +30,8 @@ class SimpleCrawlerObserver extends CrawlObserver
         ResponseInterface $response,
         ?UriInterface $foundOnUrl = null
     ) {
-        var_dump($response);
-
-        $content = $response->getBody()->getContents();
-        Storage::disk('local')->put('file.txt', 'Crawled: '.json_encode($response));
-
-        echo '=Crawled: '.json_encode($response);
+        echo $url . '<br>';
+        //var_dump($response);
     }
 
     /**
@@ -50,7 +46,6 @@ class SimpleCrawlerObserver extends CrawlObserver
         RequestException $requestException,
         ?UriInterface $foundOnUrl = null
     ) {
-        $content = $requestException->getCode();
-        Storage::disk('local')->put('file.txt', 'Failed: '.$content);
+        var_dump($requestException);
     }
 }
