@@ -33,6 +33,6 @@ Route::get('/crawler', function () {
 
     Storage::disk()->put('file.txt', 'Привет!');
     $content = Storage::disk()->get('file.txt');
-    //Storage::disk('local')->delete('file.txt');
+    Storage::disk('local')->delete('file.txt');
     return $content;
 });
