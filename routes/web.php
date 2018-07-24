@@ -29,7 +29,7 @@ Route::get('/pdf', function () {
 Route::get('/crawler', function () {
     Crawler::create()
         ->setCrawlObserver((new \App\Crawler\SimpleCrawlerObserver))
-        ->startCrawling('https://hrock.ru');
+        ->startCrawling('https://php.earth/');
 
     $content = Storage::disk('local')->get('file.txt');
     //Storage::disk('local')->delete('file.txt');
