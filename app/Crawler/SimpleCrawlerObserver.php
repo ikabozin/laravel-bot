@@ -10,6 +10,7 @@ namespace App\Crawler;
 
 
 use GuzzleHttp\Exception\RequestException;
+use Illuminate\Support\Facades\Storage;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
 use Spatie\Crawler\CrawlObserver;
@@ -30,7 +31,7 @@ class SimpleCrawlerObserver extends CrawlObserver
         ?UriInterface $foundOnUrl = null
     ) {
         $content = $response->getBody()->getContents();
-        Storage::put('file.txt', $content);
+        Storage::disk()->put('file.txt', $content);
     }
 
     /**
