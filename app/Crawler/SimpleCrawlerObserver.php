@@ -32,6 +32,8 @@ class SimpleCrawlerObserver extends CrawlObserver
     ) {
         $content = $response->getBody()->getContents();
         Storage::disk('local')->put('file.txt', 'Crawled: '.json_encode($response));
+
+        echo '=Crawled: '.json_encode($response);
     }
 
     /**
