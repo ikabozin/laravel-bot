@@ -33,9 +33,12 @@ Route::get('/crawler', function () {
         ->ignoreRobots()
         ->setMaximumCrawlCount(1)
         ->startCrawling('http://psyjournal.ru/articles/po-tu-storonu-supruzheskoy-izmeny-na-materiale-filma-stenli-kubrika-shiroko-zakrytye-glaza');
+});
 
-    //Storage::disk()->put('file.txt', 'Привет!');
-    $content = Storage::disk()->get('file.txt');
-    Storage::disk('local')->delete('file.txt');
+Route::get('/disk', function () {
+    Storage::disk()->put('disk.txt', 'Привет!');
+    $content = Storage::disk()->get('disk.txt');
+    Storage::disk()->delete('disk.txt');
+
     return $content;
 });
