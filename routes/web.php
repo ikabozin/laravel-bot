@@ -31,8 +31,8 @@ Route::get('/crawler', function () {
         ->setCrawlObserver((new \App\Crawler\SimpleCrawlerObserver))
         ->startCrawling('https://php.earth/');*/
 
-    Storage::disk('local')->put('file.txt', 'Привет!');
-    $content = Storage::disk('local')->get('file.txt');
+    Storage::disk()->put('file.txt', 'Привет!');
+    $content = Storage::disk()->get('file.txt');
     //Storage::disk('local')->delete('file.txt');
     return $content;
 });
