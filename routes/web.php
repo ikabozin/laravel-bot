@@ -31,8 +31,8 @@ Route::get('/crawler', function () {
         ->setCrawlObserver((new \App\Crawler\SimpleCrawlerObserver))
         ->doNotExecuteJavaScript()
         ->ignoreRobots()
-        ->setMaximumCrawlCount(3)
-        ->startCrawling('https://hrock.ru');
+        ->setMaximumCrawlCount(1)
+        ->startCrawling('http://psyjournal.ru/articles/po-tu-storonu-supruzheskoy-izmeny-na-materiale-filma-stenli-kubrika-shiroko-zakrytye-glaza');
 
     //Storage::disk()->put('file.txt', 'Привет!');
     $content = Storage::disk()->get('file.txt');
