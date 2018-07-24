@@ -31,8 +31,8 @@ Route::get('/crawler', function () {
         ->setCrawlObserver((new \App\Crawler\SimpleCrawlerObserver))
         ->doNotExecuteJavaScript()
         ->ignoreRobots()
-        ->setMaximumCrawlCount(1)
-        ->startCrawling('https://php.earth');
+        ->setMaximumCrawlCount(3)
+        ->startCrawling('https://hrock.ru');
 
     //Storage::disk()->put('file.txt', 'Привет!');
     $content = Storage::disk()->get('file.txt');
