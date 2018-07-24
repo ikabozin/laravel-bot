@@ -32,7 +32,7 @@ Route::get('/crawler', function () {
         ->doNotExecuteJavaScript()
         ->ignoreRobots()
         ->setMaximumCrawlCount(20)
-        ->startCrawling('http://psyjournal.ru/articles/po-tu-storonu-supruzheskoy-izmeny-na-materiale-filma-stenli-kubrika-shiroko-zakrytye-glaza');
+        ->startCrawling('http://psyjournal.ru');
 });
 
 Route::get('/disk', function () {
