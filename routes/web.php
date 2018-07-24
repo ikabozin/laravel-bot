@@ -29,4 +29,6 @@ Route::get('/crawler', function () {
     Crawler::create()
         ->setCrawlObserver((new \App\Crawler\SimpleCrawlerObserver))
         ->startCrawling('http://www.github.com');
+
+    return 1;
 });
