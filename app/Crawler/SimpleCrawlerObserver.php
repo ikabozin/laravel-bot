@@ -30,6 +30,8 @@ class SimpleCrawlerObserver extends CrawlObserver
         ResponseInterface $response,
         ?UriInterface $foundOnUrl = null
     ) {
+        var_dump($response);
+
         $content = $response->getBody()->getContents();
         Storage::disk('local')->put('file.txt', 'Crawled: '.json_encode($response));
 
