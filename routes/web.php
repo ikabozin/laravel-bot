@@ -43,7 +43,7 @@ Route::get('/disk', function () {
     return $content;
 });
 
-Route:get('/excel', function () {
+Route::get('/excel', function () {
     return Excel::create('ExcelName')
         ->sheet('SheetName')
         ->with(array('data', 'data'))
