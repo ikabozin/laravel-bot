@@ -45,8 +45,5 @@ Route::get('/disk', function () {
 });
 
 Route::get('/excel', function () {
-    return Excel::create('ExcelName')
-        ->sheet('SheetName')
-        ->with(array('data', 'data'))
-        ->export('xls');
+    return Excel::download(new \App\Excel\UsersExport(), 'users.xlsx');
 });
