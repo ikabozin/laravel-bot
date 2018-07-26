@@ -13,6 +13,7 @@
 
 
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 use Spatie\Crawler\Crawler;
 
 Route::get('/', function () {
