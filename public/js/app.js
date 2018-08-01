@@ -50605,255 +50605,92 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-
         return {
-
             task: {
-
                 name: '',
-
                 description: ''
-
             },
-
             errors: [],
-
             tasks: [],
-
             update_task: {}
-
         };
     },
     mounted: function mounted() {
-
         this.readTasks();
     },
-
 
     methods: {
         deleteTask: function deleteTask(index) {
             var _this = this;
 
             var conf = confirm("Do you ready want to delete this task?");
-
             if (conf === true) {
-
                 axios.delete('/task/' + this.tasks[index].id).then(function (response) {
-
                     _this.tasks.splice(index, 1);
                 }).catch(function (error) {});
             }
         },
         initAddTask: function initAddTask() {
-
             $("#add_task_model").modal("show");
         },
         createTask: function createTask() {
             var _this2 = this;
 
             axios.post('/task', {
-
                 name: this.task.name,
-
                 description: this.task.description
-
             }).then(function (response) {
-
                 _this2.reset();
-
                 _this2.tasks.push(response.data.task);
-
                 $("#add_task_model").modal("hide");
             }).catch(function (error) {
-
                 _this2.errors = [];
-
                 if (error.response.data.errors && error.response.data.errors.name) {
-
                     _this2.errors.push(error.response.data.errors.name[0]);
                 }
-
                 if (error.response.data.errors && error.response.data.errors.description) {
-
                     _this2.errors.push(error.response.data.errors.description[0]);
                 }
             });
         },
         reset: function reset() {
-
             this.task.name = '';
-
             this.task.description = '';
         },
         readTasks: function readTasks() {
             var _this3 = this;
 
-            axios.get('https://hrock.ru/task').then(function (response) {
-
+            axios.get('/task').then(function (response) {
                 _this3.tasks = response.data.tasks;
             });
         },
         initUpdate: function initUpdate(index) {
-
             this.errors = [];
-
             $("#update_task_model").modal("show");
-
             this.update_task = this.tasks[index];
         },
         updateTask: function updateTask() {
             var _this4 = this;
 
             axios.patch('/task/' + this.update_task.id, {
-
                 name: this.update_task.name,
-
                 description: this.update_task.description
-
             }).then(function (response) {
-
                 $("#update_task_model").modal("hide");
             }).catch(function (error) {
-
                 _this4.errors = [];
-
                 if (error.response.data.errors.name) {
-
                     _this4.errors.push(error.response.data.errors.name[0]);
                 }
-
                 if (error.response.data.errors.description) {
-
                     _this4.errors.push(error.response.data.errors.description[0]);
                 }
             });
         }
     }
-
 });
 
 /***/ }),
@@ -50912,17 +50749,17 @@ var render = function() {
                             _vm._v(" "),
                             _c("td", [
                               _vm._v(
-                                "\n\n                                " +
+                                "\n                                " +
                                   _vm._s(task.name) +
-                                  "\n\n                            "
+                                  "\n                            "
                               )
                             ]),
                             _vm._v(" "),
                             _c("td", [
                               _vm._v(
-                                "\n\n                                " +
+                                "\n                                " +
                                   _vm._s(task.description) +
-                                  "\n\n                            "
+                                  "\n                            "
                               )
                             ]),
                             _vm._v(" "),
@@ -51227,25 +51064,25 @@ var staticRenderFns = [
     return _c("tr", [
       _c("th", [
         _vm._v(
-          "\n\n                                No.\n\n                            "
+          "\n                                No.\n                            "
         )
       ]),
       _vm._v(" "),
       _c("th", [
         _vm._v(
-          "\n\n                                Name\n\n                            "
+          "\n                                Name\n                            "
         )
       ]),
       _vm._v(" "),
       _c("th", [
         _vm._v(
-          "\n\n                                Description\n\n                            "
+          "\n                                Description\n                            "
         )
       ]),
       _vm._v(" "),
       _c("th", [
         _vm._v(
-          "\n\n                                Action\n\n                            "
+          "\n                                Action\n                            "
         )
       ])
     ])
