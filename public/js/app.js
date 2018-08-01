@@ -50812,7 +50812,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         readTasks: function readTasks() {
             var _this3 = this;
 
-            axios.get('http://127.0.0.1:8000/task').then(function (response) {
+            axios.get('https://hrock.ru/task').then(function (response) {
 
                 _this3.tasks = response.data.tasks;
             });
