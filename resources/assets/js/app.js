@@ -18,6 +18,8 @@ window.Vue = require('vue');
 import {TinkerComponent} from 'botman-tinker';
 Vue.component('botman-tinker', TinkerComponent);
 
+Vue.component('task', require('./components/Task.vue'));
+
 const app = new Vue({
     el: '#app'
 });

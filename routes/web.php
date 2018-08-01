@@ -47,3 +47,8 @@ Route::get('/disk', function () {
 Route::get('/excel', function () {
     return Excel::download(new \App\Excel\UsersExport(), 'users.xlsx');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/task', 'TaskController');
