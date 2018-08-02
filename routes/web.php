@@ -58,4 +58,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/task', 'TaskController');
 
-Route::controller('/subscriber', 'SubscriberController');
+Route::resource('/subscriber', 'SubscriberController');
