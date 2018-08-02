@@ -18,6 +18,7 @@
 
 <form action="/subscribers/submit" method="post">
     <p>Simple Newsletter Subscription</p>
+    @csrf
     <input type="text" name="email" placeholder="Type your E-mail address here">
     <input type="submit">
 </form>
