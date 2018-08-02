@@ -18,6 +18,7 @@
 
 <form action="/subscriber/store" method="post">
     <p>Simple Newsletter Subscription</p>
+    @method('PUT')
     @csrf
     <input type="text" name="email" placeholder="Type your E-mail address here">
     <input type="submit">
