@@ -28,8 +28,12 @@ Route::get('/pdf', function () {
 });
 
 Route::get('/crawler', function () {
+    $browsershot = (new \Spatie\Browsershot\Browsershot())
+        ->setNodeBinary('/usr/bin/nodejs');
+
     Crawler::create()
         ->setCrawlObserver((new \App\Crawler\SimpleCrawlerObserver))
+        ->setBrowsershot($browsershot)
         ->executeJavaScript()
         ->ignoreRobots()
         ->setMaximumCrawlCount(20)
