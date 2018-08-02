@@ -29,7 +29,8 @@ Route::get('/pdf', function () {
 
 Route::get('/crawler', function () {
     $browsershot = (new \Spatie\Browsershot\Browsershot())
-        ->setNodeBinary('/usr/bin/nodejs');
+        ->setNodeBinary('/usr/bin/nodejs')
+        ->setNpmBinary('/usr/bin/npm');
 
     Crawler::create()
         ->setCrawlObserver((new \App\Crawler\SimpleCrawlerObserver))
