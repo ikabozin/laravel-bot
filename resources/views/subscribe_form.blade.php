@@ -34,7 +34,7 @@
         //This part is more jQuery Related. In short, we //make an Ajax post request and get the response//back from server
         $('input[type="submit"]').click(function(e){
             e.preventDefault();
-            $.post('/subscribers/submit', {
+            $.post('/subscriber/store', {
                 email: $('input[name="email"]').val()
             }, function($data){
                 if($data=='1') {
