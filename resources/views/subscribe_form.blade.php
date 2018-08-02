@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<form action="/subscribers/submit" method="post">
+<form action="/subscriber/store" method="post">
     <p>Simple Newsletter Subscription</p>
     @csrf
     <input type="text" name="email" placeholder="Type your E-mail address here">
