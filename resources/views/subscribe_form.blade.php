@@ -35,9 +35,7 @@
         //This part is more jQuery Related. In short, we //make an Ajax post request and get the response//back from server
         $('input[type="submit"]').click(function(e){
             e.preventDefault();
-            $.post('/subscriber/store', {
-                email: $('input[name="email"]').val()
-            }, function($data){
+            $.post('/subscriber/store', $("form").serialize(), function($data){
                 if($data=='1') {
                     $('div.content').hide().removeClass('success error').addClass('success').html('You\'ve successfully subscribed to ournewsletter').fadeIn('fast');
                 } else {
